@@ -31,8 +31,93 @@
     --header-text: #F2F0FF;
     --background: #F3F6F9;
     --service-tile-text: #7A7A7A;
+    --basic-white: #FFFFFF;
+    /*--gradient-background: linear-gradient(315deg, rgba(72,69,228,1) 35%, rgba(87,34,205,1) 100%);*/
 }
 
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+}
+/*--Heading typography--*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    text-align: center;
+
+}
+
+h1,
+h5 {
+    font-size: 1.7rem;
+    display: block;
+    width: 100%;
+    color: var(--header-text);
+}
+
+h2 {
+    color: var(--text-color-accent);
+    font-size: 1rem;
+    margin: 0 0 0.7em 0;
+}
+
+h3 {
+    text-align: left;
+    font-size: 1.5rem;
+    margin: 0 0 1em 0;
+}
+
+h4 {
+    color: var(--text-color-accent);
+    font-size: 1.2rem;
+    text-align: left;
+    margin: 0.5em 0;
+}
+
+/*--Paragraph typography--*/
+p {
+    padding: 1em 0 1.8em 0;
+}
+
+.header-content p {
+    color: var(--header-text);
+    font-size: 1.3rem;
+    font-weight: 300;
+
+}
+
+.introduction-text p {
+    text-align: center;
+    padding: 4em 0 0 0;
+    position: relative;
+}
+
+.info-block p {
+    font-size: 0.9rem;
+    color: var(--service-tile-text);
+    padding: 0.5em 0;
+    font-weight: 400;
+}
+
+.inner-contact p {
+    color: var(--header-text);
+    font-weight: 300;
+}
+
+footer p {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: var(--basic-white);
+    padding: 5px 0;
+}
+
+/*--Anchor typography--*/
 a {
     font-family: inherit;
     text-decoration: none;
@@ -49,53 +134,43 @@ a:hover {
     text-decoration: none;
 }
 
-/* ------------------------------- 2. Typography ----------------------------------- */
-
-body {
-    font-family: "Roboto", sans-serif;
-    font-weight: 400;
+.navigation-items a,
+.navigation-items a:visited {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--basic-white);
 }
 
-h1, h2, h3, h4 {
-    font-family: "Merriweather", serif;
-    font-weight: 700;
-    text-align: center;
-
+.introduction-text a,
+.introduction-text a:visited {
+    color: var(--text-color-accent)
 }
 
-h1 {
-    font-size: 2.4rem;
-    letter-spacing: -1px;
-}
-
-h2 {
-    color: var(--text-color-accent);
-    font-size: 1.5rem;
-    margin: 0 0 0.7em 0;
-}
-
-h3 {
-    text-align: left;
-    font-size: 1.5rem;
-    margin: 0 0 1em 0;
-}
-
-p {
-    padding: 1.5em 0;
-}
-
-.navigation-items a, a:visited {
-    color: white;
-    font-weight: 300;
-}
-
-.work-text-wrapper a {
+.work-text-wrapper a,
+.work-text-wrapper a:visited {
     color: var(--text-color-accent);
     text-transform: uppercase;
     padding: 17px 0;
     font-size: 0.7rem;
     letter-spacing: 1px;
     font-weight: 700;
+}
+
+/*--Contact form typography--*/
+
+label {
+    color: var(--header-text);
+    font-size: 0.8rem;
+}
+
+input,
+input::placeholder,
+textarea,
+textarea::placeholder {
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--service-tile-text)
 }
 
 /* ------------------------------- 3. Layout --------------------------------------- */
@@ -107,47 +182,95 @@ p {
     flex-direction: row;
     justify-content: center;
     width: 100vw;
-    border: 2px solid yellow;
+    /*border: 2px solid yellow;*/
 }
 
 .inner-container {
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
+    margin: 0 1em;
     align-items: center;
-    flex: 0 1 1200px;
-    border: 2px solid red;
-    margin: 0 30px;
+    padding: 0;
+    /*border: 2px solid red;*/
 }
 
 /* --------------- 3.2 Other --------------------------- */
+
+/*Start of animation*/
+.work-text-wrapper a {
+    position: relative;
+    display: inline-block;
+    /*padding-right: 2em;*/
+}
+
+.work-text-wrapper a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color-accent);
+    transition: width 0.5s ease;
+}
+
+/*End of animation*/
+.work-text-wrapper a:hover::after {
+    width: 60px;
+}
+
+.extra p {
+    font-size: 1rem;
+}
+
 
 /* ------------------------------- 4. Areas ---------------------------------------- */
 
 /* --------------- 4.1 Header ------------------------- */
 
 .outer-header {
-    /*background-color: var(--header-bg);*/
+    /*background: var(--gradient-background);*/
     background: linear-gradient(270deg, var(--text-color-accent), var(--header-bg));
-    color: var(--header-text);
-    border: 2px solid orange;
-
+    /*border: 2px solid orange;*/
+    /*position: relative;*/
+    /*z-index: 0;*/
 }
+/*Ask SME, can't get this to work yet.*/
+/*.outer-header::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    height: 200%;*/
+/*    width: 200%;*/
+/*    opacity: 1;*/
+/*    background: url("assets/noise-texture.png") repeat;*/
+/*    !*background-color: rgba(255, 0, 0, 0.5); !* Semi-transparent red for testing *!*!*/
+
+/*    background-size: contain;*/
+/*    z-index: 1;*/
+/*}*/
 
 nav {
+    width: 100%;
+    justify-content: space-between;
+    padding: 1em;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    width: 100%;
-    border: 2px dotted lightgray;
-    padding: 20px 40px;
+    /*border: 2px dotted lightgray;*/
+}
+
+.inner-header {
+    padding: 0;
 }
 
 ul {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+    width: 100%;
     gap: 2rem;
+    padding: 0 0.5em;
 }
 
 li {
@@ -155,17 +278,13 @@ li {
 }
 
 .header-content {
+    width: 100%;
+    padding: 4.5em 0;
     text-align: center;
     flex: 0 1 75%;
-    width: 60%;
-    padding: 4.5em 0;
-    border: 2px solid yellow;
     position: relative;
-}
-
-.header-content p {
-    font-size: 1.3rem;
-    font-weight: 300;
+    z-index: 1;
+    /*border: 2px solid yellow;*/
 }
 
 .button {
@@ -180,60 +299,74 @@ li {
     letter-spacing: 1px;
 }
 
-
+.squiggle-stripe {
+    position: relative;
+    top:0;
+    left: 0;
+}
 
 /* --------------- 4.2 Introduction ------------------- */
 
 .outer-introduction {
-    background-color: white;
-    border: 2px solid purple;
+    background-color: var(--basic-white);
     background-size: contain;
+    /*border: 2px solid purple;*/
 }
 
 .introduction-text {
     flex: 0 1 75%;
-    width: 60%;
-    border: 2px solid blue;
-    padding: 6em 0 6em;
+    width: 100%;
+    padding: 8em 0 5em;
+    position: relative;
+
+    /*border: 2px solid blue;*/
 }
 
-/*.inner-introduction {*/
-/*    padding: 2em 0 6em;*/
-/*}*/
-
-.introduction-text a, a:visited {
-    color: var(--text-color-accent)
-}
-
-.introduction-text p {
-    text-align: center;
-    padding: 4em 0 0 0;
+.inner-introduction h2 {
+    position: relative;
 }
 
 .squiggle-stripe {
     height: 100px;
     background-size: contain;
-    margin: 50px 0 0 0;
+    margin: 30px 0 0 0;
 }
 
 .squiggle-stripe img {
     height: 100%;
+    position: relative;
+    top: 20px;
 }
 
+.introduction-text::before {
+    content: "Hello";
+    color: var(--background);
+    font-size: 9rem;
+    text-transform: lowercase;
+    letter-spacing: -0.7rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 50%;
+}
 
 /* --------------- 4.2 Main ------------------- */
 
-/*main .outer-container {*/
-/*    background-color: var(--background);*/
-/*}*/
+main .outer-container {
+    background-color: var(--background);
+}
 
-main {
-    margin: 50px auto 100px;
+main .inner-container {
+    justify-content: space-between;
+}
+
+.image-wrapper img {
+    width: 100%;
 }
 
 .image-wrapper {
-    flex: 0 1 60%;
-    margin: 3em;
+    flex: 0 1 auto;
+    margin: 2em 0;
 }
 
 .image-wrapper img {
@@ -250,37 +383,411 @@ main {
 }
 
 .icon-wrapper {
-    width: 50px;
+    width: 60px;
 }
 
 .work-text-wrapper {
     display: flex;
     flex-direction: column;
-    flex: 0 1 40%;
-    padding: 5em;
+    flex: 0 1 45%;
+    padding: 0;
 }
 
 /* -------- 4.2.1 Rolling Stone ------------------- */
 .rolling-stone {
-    flex-direction: row;
+    padding-top: 100px;
+    flex-direction: column-reverse;
+    position: relative;
+
+}
+
+.rolling-stone .image-wrapper {
+    position: relative;
+}
+
+.rolling-stone::before {
+    content: "Work";
+    color: var(--basic-white);
+    font-size: 9rem;
+    text-transform: lowercase;
+    letter-spacing: -0.7rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 18%;
+    left: 50%;
 }
 
 /* -------- 4.2.1 Variety ------------------- */
+
 .variety {
-    flex-direction: row-reverse
+    flex-direction: column-reverse;
 }
 
 /* -------- 4.2.1 Worth ------------------- */
 .worth {
-    flex-direction: row;
+    flex-direction: column-reverse;
+    padding: 0 0 6em 0;
+
 }
 
 /* --------------- 4.3 Services ------------------- */
 
 .inner-services {
     flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: stretch;
     flex-wrap: wrap;
-    padding: 50px 50px
+    gap: 30px;
+    padding: 10em 1.5em 5em;
+    /*border: 3px solid yellow;*/
+}
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 8px 2px hsla(0deg 0% 0% / 7%);
+    border: 0.1rem solid var(--text-color-accent);
+    background-color: var(--basic-white);
+    flex: 1 1 auto;
+    padding: 2em;
+    position: relative;
+}
+
+.inner-services::before {
+    content: "Services";
+    color: var(--background);
+    font-size: 7.5rem;
+    text-transform: lowercase;
+    letter-spacing: -0.7rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 6.5%;
+    left: 50%;
+    z-index: 0;
+}
+
+/* --------------- 4.4 Contact form ------------------- */
+
+.outer-contact-form {
+    /*background: var(--gradient-background);*/
+    background: linear-gradient(270deg, var(--text-color-accent), var(--header-bg));
+}
+
+.inner-contact {
+    flex: 0 1 100vw;
+    padding: 100px 0 50px 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+}
+
+input,
+input::placeholder,
+textarea,
+textarea::placeholder {
+    width: 100%;
+    padding: 0.7em 0.5em;
+    outline: none;
+    margin-bottom: 2em;
+}
+
+textarea {
+    height: 20vh;
+    overflow: hidden;
+}
+
+.form-button {
+    padding-left: 5em;
+    padding-right: 5em;
+    align-self: center;
+}
+
+
+
+/* --------------- 4.5 Footer ------------------- */
+
+footer {
+    background-color: var(--main-text);
+}
+
+.inner-footer {
+    padding: 15px 0 10px 0;
+
 }
 
 /* ------------------------------- 5. Media Queries -------------------------------- */
+/*Base website is built for phone width*/
+
+/*------For tablets------*/
+@media screen and (min-width: 576px) {
+
+    .navigation-items {
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .navigation-items a,
+    a:visited {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+
+    h1, h5 {
+        font-size: 2rem;
+        display: inline;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    .inner-container {
+        margin: 0 30px;
+        flex: 0 1 1200px;
+    }
+
+/*Header*/
+    .header-content {
+        width: 80%;
+        padding: 4.5em 0;
+    }
+
+    .rolling-stone,
+    .worth{
+        padding: 60px 20px;
+
+    }
+
+    .variety {
+        padding: 0 20px;
+    }
+
+/*Introduction*/
+    .introduction-text {
+        padding-top: 9em;
+    }
+
+    .introduction-text::before {
+        font-size: 13rem;
+        letter-spacing: -1rem;
+        top: 30%;
+    }
+
+/*Work*/
+    .rolling-stone {
+        padding-top: 140px;
+    }
+
+    .rolling-stone::before {
+        font-size: 13rem;
+        letter-spacing: -1.1rem;
+        top: 17%;
+    }
+
+/*Services*/
+    .info-block {
+        padding: 2.5em;
+        flex: 0 1 314px;
+    }
+
+    .inner-services {
+        padding: 9em 1em;
+    }
+
+    .inner-services::before {
+        font-size: 10rem;
+        letter-spacing: -0.9rem;
+        top: 5%;
+    }
+
+/*Contact*/
+    .inner-contact {
+        flex-basis: 80vw;
+    }
+
+}
+
+
+/*------For laptops------*/
+@media screen and (min-width: 768px) {
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .introduction-text {
+        width: 80%;
+    }
+
+    .introduction-text {
+        padding-top: 10em;
+    }
+
+    .introduction-text::before {
+        font-size: 22rem;
+        top: 40%;
+    }
+
+/*Work*/
+    .work-text-wrapper {
+        padding-right: 1em;
+        flex: 0 0 40%;
+        position: relative;
+    }
+
+    .rolling-stone {
+        flex-direction: row;
+        padding: 10em 0 5em;
+
+    }
+
+    .variety {
+        flex-direction: row-reverse
+    }
+
+    .variety .work-text-wrapper {
+        padding-left: 1em;
+    }
+
+    .worth {
+        flex-direction: row;
+        padding: 5em 0;
+
+    }
+
+    .rolling-stone::before {
+        font-size: 22rem;
+        top: 35%;
+    }
+
+/*Services*/
+    .info-block {
+        padding: 2.5em;
+        flex: 0 0 314px;
+    }
+
+    .inner-services {
+        padding: 10em 1em 5em;
+    }
+
+    .image-wrapper {
+        margin: 1em;
+    }
+
+    .inner-services::before {
+        font-size: 14rem;
+        top: 10%;
+    }
+
+/*Contact*/
+    .inner-contact {
+        flex-basis: 50vw;
+    }
+
+}
+
+
+/*--For desktop and larger screens--*/
+@media screen and (min-width: 992px) {
+    .inner-container {
+        margin: 0 30px;
+        flex: 0 1 1200px;
+    }
+
+    .header-content {
+        width: 60%;
+        padding: 4.5em 0;
+    }
+
+    nav {
+        padding: 20px 40px;
+    }
+
+    .navigation-items {
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .navigation-items a,
+    a:visited {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+
+    h1, h5 {
+        font-size: 2.4rem;
+        display: inline;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+/*Introduction*/
+    .introduction-text {
+        width: 60%;
+        padding-top: 10em;
+
+    }
+
+    .introduction-text::before {
+        font-size: 25rem;
+        top: 40%;
+    }
+
+/*Work*/
+    .rolling-stone {
+        flex-direction: row;
+        padding-top: 12em;
+
+    }
+
+    .variety {
+        flex-direction: row-reverse
+    }
+
+    .worth {
+        flex-direction: row;
+        padding-bottom: 8em;
+
+    }
+
+    .rolling-stone::before {
+        font-size: 25rem;
+        top: 30%;
+    }
+
+/*Services*/
+    .info-block {
+        padding: 2.5em;
+        flex: 0 0 314px;
+    }
+
+    .inner-services {
+        padding: 12em 3em 5em;
+    }
+
+    .image-wrapper {
+        margin: 2em;
+    }
+
+    .work-text-wrapper {
+        padding: 5em;
+    }
+
+    .inner-services::before {
+        font-size: 17rem;
+        top: 15%;
+    }
+
+/*Contact*/
+    .inner-contact {
+        flex-basis: 50vw;
+    }
+
+}

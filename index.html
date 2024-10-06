@@ -4,47 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/styles.css">
-    <title>Title</title>
+    <title>Rekupe</title>
 </head>
 <body>
 <header class="outer-container outer-header">
-    <div class="inner-container">
+    <div class="inner-container inner-header">
         <nav>
             <ul class="navigation-items">
-                <li><a href="/">Case Studies</a></li>
-                <li><a href="/">Services</a></li>
-                <li><a href="/">Contact Us</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
         </nav>
         <div class="header-content">
             <h1>Your website is an investment in the success of your business.</h1>
             <p>We are here to help you succeed.</p>
-            <button type="button" class="button">Let's work together</button>
+            <a href="#contact"><button type="button" class="button">Let's work together</button></a>
         </div>
-        <div class="squiggle-stripe"><img src="assets/squiggle_line_stripe.svg" alt="squiggle stripe"/></div>
+        <span class="squiggle-stripe"><img src="assets/squiggle_line_stripe.svg" alt="squiggle stripe"/></span>
     </div>
 </header>
 <div class="outer-container outer-introduction">
     <div class="inner-container inner-introduction">
         <div class="introduction-text">
-            <!--                    Hello-->
             <h2>Rekupe is a digital agency in Los Angeles.</h2>
             <h2>We use strategic UX, SEO optimization and beautiful visual designs to help your business grow.</h2>
             <h2>We see every project as a fresh opportunity, pushing ourselves to create new digital experiences.</h2>
-            <p>Have a question? <a href="/">Click here</a> to contact us!</p>
+            <p>Have a question? <a href="#contact">Click here</a> to contact us!</p>
         </div>
-
     </div>
 </div>
-<main>
-    <!--        Work-->
+<main id="case-studies">
     <section class="outer-container">
         <div class="inner-container rolling-stone">
             <div class="work-text-wrapper">
                 <h3>Rolling Stone</h3>
                 <div class="squiggle-wrapper"><img src="assets/squiggle_line.svg" alt="squiggle" /></div>
                 <p>You know Rolling Stone. It’s the definitive voice in music, politics and culture. It’s a global icon.</p>
-                <a href="/">View project</a>
+                <a href="case-studies-page.html">View project</a>
             </div>
             <span class="image-wrapper"><img src="assets/work-image-01.jpeg" alt="work-image-01.jpeg"/></span>
         </div>
@@ -56,7 +53,7 @@
                 <div class="squiggle-wrapper"><img src="assets/squiggle_line.svg" alt="squiggle" /></div>
                 <p>Variety is an industry leader for breaking entertainment news, reviews and box office results with
                     archive of content dating back to 1905.</p>
-                <a href="/">View project</a>
+                <a href="case-studies-page.html">View project</a>
             </div>
             <span class="image-wrapper"><img src="assets/work-image-02.jpeg" alt="work-image-01.jpeg"/></span>
         </div>
@@ -67,15 +64,14 @@
                 <h3>Worth</h3>
                 <div class="squiggle-wrapper"><img src="assets/squiggle_line.svg" alt="squiggle" /></div>
                 <p>A global media platform connecting a community that embraces worth beyond wealth.</p>
-                <a href="/">View project</a>
+                <a href="case-studies-page.html">View project</a>
             </div>
             <span class="image-wrapper"><img src="assets/work-image-03.jpeg" alt="work-image-01.jpeg"/></span>
         </div>
     </section>
 </main>
-<section class="outer-container service-info-blocks">
+<section class="outer-container service-info-blocks" id="services">
     <div class="inner-container inner-services">
-        <!--            Services-->
         <div class="info-block">
             <div class="icon-wrapper"><img src="assets/icon_web-design.svg" alt="webdesign icon"/></div>
             <h4>Web Design</h4>
@@ -121,17 +117,27 @@
         </div>
     </div>
 </section>
-<section class="outer-container contact-form">
-    <div class="inner-container">
+<section class="outer-container outer-contact-form" id="contact">
+    <div class="inner-container inner-contact">
         <h5>Let's work together</h5>
         <p>Have a question? Need a quote? Let us know!</p>
+        <form class="contact-form" onsubmit="hier-java-script-nodig">
+                <label for="name-field">Name</label>
+                <input type="text" id="name-field" placeholder="Name"/>
 
+                <label for="user-email-field">Email</label>
+                <input type="email" id="user-email-field" placeholder="Email"/>
+
+                <label for="message-field">Message</label>
+                <textarea name="message" id="message-field" placeholder="Message"></textarea>
+
+                <button type="submit" class="button form-button">Send</button>
+        </form>
     </div>
 </section>
 <footer class="outer-container">
-    <div class="inner-container">
-        <p>Business website opdracht © NOVI Hogeschool 2022
-        <p>
+    <div class="inner-container inner-footer">
+        <p>Business website opdracht © NOVI Hogeschool 2022<p>
     </div>
 </footer>
 </body>
