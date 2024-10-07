@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/*////////////////////////
+
+    Table of Contents
+    1. Global Styles
+    2. Typography
+    3. Layout
+        3.1 Reusables
+        3.2 Other
+    4. Areas
+        4.1 Header
+        4.2 Introduction
+        etc.
+    5. Media Queries
+////////////////////////*/
+
+/* ------------------------------- 1. Global Styles -------------------------------- */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color-accent: #5722CD;
+    --header-bg: #4845E4;
+    --button-pink: #ED4385;
+    --main-text: #0C0C0C;
+    --header-text: #F2F0FF;
+    --background: #F3F6F9;
+    --service-tile-text: #7A7A7A;
+    --basic-white: #FFFFFF;
+}
+
+body {
+    /*It seems that I have to add this when using the noise overlay, otherwise nothing is clickable and the body is laying on top*/
+    z-index: -3;
+    position: relative;
+
+}
+
+/*Background noise image*/
+.outer-header::after,
+.outer-contact-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    background: url(../assets/noise-texture.png) repeat;
+    background-size: auto;
+    z-index: -1;
+}
+
+/* ------------------------------- 2. Typography ----------------------------------- */
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+}
+
+/*--Heading typography--*/
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    text-align: center;
+}
+
+h1,
+h5 {
+    font-size: 1.7rem;
+    display: block;
+    width: 100%;
+    color: var(--header-text);
+}
+
+h2 {
+    color: var(--text-color-accent);
+    font-size: 1.2rem;
+    margin: 0 0 0.7em 0;
+}
+
+h3 {
+    text-align: left;
+    font-size: 1.5rem;
+    margin: 0 0 1em 0;
+}
+
+h4 {
+    color: var(--text-color-accent);
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 0.5em 0;
+}
+
+/*--Paragraph typography--*/
+p {
+    padding: 1em 0 1.8em 0;
+}
+
+.header-content p {
+    color: var(--header-text);
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+
+.introduction-text p {
+    text-align: center;
+    padding: 4em 0 0 0;
+    position: relative;
+}
+
+.info-block p {
+    font-size: 0.9rem;
+    color: var(--service-tile-text);
+    padding: 0.5em 0;
+    font-weight: 400;
+}
+
+.inner-contact p {
+    color: var(--header-text);
+    font-weight: 300;
+}
+
+footer p {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: var(--basic-white);
+    padding: 5px 0;
+}
+
+/*--Anchor typography--*/
+a {
+    font-family: inherit;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navigation-items a,
+.navigation-items a:visited {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--basic-white);
+}
+
+.introduction-text a,
+.introduction-text a:visited {
+    color: var(--text-color-accent)
+}
+
+.work-text-wrapper a,
+.work-text-wrapper a:visited {
+    color: var(--text-color-accent);
+    text-transform: uppercase;
+    padding: 17px 0;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+/*--Contact form typography--*/
+label {
+    color: var(--header-text);
+    font-size: 0.8rem;
+}
+
+input,
+input::placeholder,
+textarea,
+textarea::placeholder {
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--service-tile-text)
+}
+
+/* ------------------------------- 3. Layout --------------------------------------- */
+
+/* --------------- 3.1 Reusables ----------------------- */
+
+.outer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
+    align-items: center;
+    padding: 0;
+}
+
+/* --------------- 3.2 Other --------------------------- */
+
+/*"view project-line" animation*/
+/*Start of animation*/
+
+.work-text-wrapper a {
+    position: relative;
+    display: inline-block;
+}
+
+.work-text-wrapper a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 0;
+    height: 2px;
+    background-color: var(--text-color-accent);
+    transition: width 0.5s ease;
+}
+
+/*End of animation*/
+.work-text-wrapper a:hover::after {
+    width: 60px;
+}
+
+.extra p {
+    font-size: 1rem;
+}
+
+/* ------------------------------- 4. Areas ---------------------------------------- */
+
+/* --------------- 4.1 Header ------------------------- */
+
+.outer-header {
+    background: linear-gradient(270deg, var(--text-color-accent), var(--header-bg));
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 93%);
+    position: relative;
+    z-index: -2;
+}
+
+nav {
+    width: 100%;
+    padding: 1em 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.inner-header {
+    padding: 0;
+}
+
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    gap: 2rem;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.header-content {
+    width: 100%;
+    padding: 4.5em 0;
+    text-align: center;
+    flex: 0 1 75%;
+}
+
+.button {
+    background-color: var(--button-pink);
+    color: white;
+    padding: 17px 30px;
+    border: none;
+    box-shadow: 0 2px 5px 2px hsla(0deg 0% 0% / 20%);
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+}
+
+.link-pink,
+.link-pink:visited {
+    background-color: var(--button-pink);
+    color: white;
+    padding: 17px 30px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px 2px hsla(0deg 0% 0% / 20%);
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.1rem;
+    position: relative;
+}
+
+
+.squiggle-stripe {
+    height: 100px;
+    width: 100px;
+    background-size: contain;
+    margin: 30px 0 0 0;
+    position: relative;
+}
+
+.squiggle-stripe img {
+    height: 100%;
+    width: 100%;
+}
+
+/* --------------- 4.2 Introduction ------------------- */
+
+.introduction-text {
+    width: 100%;
+    padding: 8em 0.3em 5em;
+    position: relative;
+}
+
+.inner-introduction h2 {
+    position: relative;
+}
+
+.introduction-text::before {
+    content: "Hello";
+    color: var(--background);
+    font-size: 9rem;
+    text-transform: lowercase;
+    letter-spacing: -0.7rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 25%;
+    left: 50%;
+}
+
+/* --------------- 4.2 Main ------------------- */
+
+main .outer-work{
+    background-color: var(--background);
+    clip-path: polygon(0% 0%, 100% 3%, 100% 100%, 0% 97%);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.image-wrapper img {
+    width: 100%;
+}
+
+.image-wrapper {
+    flex: 0 1 auto;
+    margin: 2em 0;
+}
+
+.image-wrapper img {
+    width: 100%;
+    box-shadow: 0 30px 30px 0 hsla(0deg 0% 0% / 20%);
+}
+
+.icon-wrapper {
+    width: 60px;
+}
+
+.work-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 45%;
+    padding: 0;
+}
+
+/* -------- 4.2.1 Rolling Stone ------------------- */
+.rolling-stone {
+    padding-top: 8em;
+    flex-direction: column-reverse;
+    position: relative;
+    z-index: 1;
+}
+
+.rolling-stone .image-wrapper {
+    z-index: 1;
+}
+
+.rolling-stone::before {
+    content: "Work";
+    color: var(--basic-white);
+    font-size: 9rem;
+    text-transform: lowercase;
+    letter-spacing: -0.7rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 21%;
+    left: 50%;
+}
+
+/* -------- 4.2.1 Variety ------------------- */
+
+.variety {
+    flex-direction: column-reverse;
+}
+
+/* -------- 4.2.1 Worth ------------------- */
+
+.worth {
+    flex-direction: column-reverse;
+    padding: 0 0 6em 0;
+}
+
+/* --------------- 4.3 Services ------------------- */
+
+.inner-services {
+    flex-direction: row;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 5em 1.5em 5em;
+}
+
+.info-block {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--basic-white);
+    box-shadow: 0 10px 8px 2px hsla(0deg 0% 0% / 7%);
+    border: 0.1rem solid var(--text-color-accent);
+    flex: 1 1 auto;
+    padding: 2em;
+    position: relative;
+}
+
+.inner-services::before {
+    content: "Services";
+    color: var(--background);
+    font-size: 7.5rem;
+    text-transform: lowercase;
+    letter-spacing: -0.7rem;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 3%;
+    left: 50%;
+}
+
+/* --------------- 4.4 Contact form ------------------- */
+
+.outer-contact-form {
+    background: linear-gradient(270deg, var(--text-color-accent), var(--header-bg));
+    clip-path: polygon(0% 0%, 100% 7%, 100% 100%, 0% 100%);    position: relative;
+    z-index: -2;
+}
+
+.inner-contact {
+    flex: 0 1 100vw;
+    padding: 100px 0 50px 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    position: relative
+}
+
+input,
+input::placeholder,
+textarea,
+textarea::placeholder {
+    width: 100%;
+    padding: 0.7em 0.5em;
+    outline: none;
+    margin-bottom: 2em;
+}
+
+textarea {
+    height: 20vh;
+    overflow: hidden;
+}
+
+.form-button {
+    padding-left: 5em;
+    padding-right: 5em;
+    align-self: center;
+}
+
+/* --------------- 4.5 Footer ------------------- */
+
+.outer-footer {
+    background-color: var(--main-text);
+}
+
+.footer-general {
+    flex-direction: column;
+}
+
+.outer-footer p {
+    padding: 2em 0;
+    margin: 0 1em;
+}
+
+/* ------------------------------- 5. Media Queries -------------------------------- */
+/*Base website is built for phone width*/
+
+/*------For tablets------*/
+@media screen and (min-width: 576px) {
+
+    .inner-container {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .navigation-items {
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .navigation-items a,
+    a:visited {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+
+    h1, h5 {
+        font-size: 2rem;
+        display: inline;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+
+/*Header*/
+    .header-content {
+        width: 80%;
+        padding: 4.5em 0;
+    }
+
+/*Introduction*/
+    .introduction-text {
+        padding-top: 9em;
+    }
+
+    .introduction-text::before {
+        font-size: 13rem;
+        letter-spacing: -1rem;
+        top: 30%;
+    }
+
+/*Work*/
+    .rolling-stone {
+        padding-top: 10em;
+    }
+
+    .work-text-wrapper {
+        flex: 0 0 auto;
+    }
+
+    .rolling-stone::before {
+        font-size: 13rem;
+        letter-spacing: -1.1rem;
+        top: 20%;
+    }
+
+/*Services*/
+    .inner-services {
+        padding: 9em 1em;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    .inner-services::before {
+        font-size: 10rem;
+        letter-spacing: -0.9rem;
+        top: 5%;
+    }
+
+    .info-block {
+        padding: 2.5em;
+        flex: 0 1 auto;
+    }
+
+/*Contact*/
+    .inner-contact {
+        flex-basis: 80vw;
+    }
+
+}
+
+/*------For laptops------*/
+@media screen and (min-width: 768px) {
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .introduction-text {
+        width: 80%;
+    }
+
+    .introduction-text {
+        padding-top: 10em;
+    }
+
+    .introduction-text::before {
+        font-size: 22rem;
+        top: 40%;
+    }
+
+/*Work*/
+    .work-text-wrapper {
+        padding-left: 2em;
+        flex: 0 0 40%;
+        position: relative;
+    }
+
+    .rolling-stone {
+        flex-direction: row;
+        padding: 15em 0 5em;
+
+    }
+
+    .variety {
+        flex-direction: row-reverse;
+    }
+
+    .variety .work-text-wrapper {
+        padding-right: 2em;
+    }
+
+    .worth {
+        flex-direction: row;
+        padding: 5em 0;
+
+    }
+
+    .rolling-stone::before {
+        font-size: 22rem;
+        top: 35%;
+    }
+
+/*Services*/
+    .info-block {
+        padding: 2.5em;
+        flex: 0 0 314px;
+    }
+
+    .inner-services {
+        padding: 10em 1em 5em;
+    }
+
+    .image-wrapper {
+        margin: 1em;
+    }
+
+    .inner-services::before {
+        font-size: 14rem;
+        top: 10%;
+    }
+
+/*Contact*/
+    .inner-contact {
+        flex-basis: 50vw;
+    }
+
+}
+
+/*--For desktop and larger screens--*/
+@media screen and (min-width: 992px) {
+    .inner-container {
+        margin: 0 30px;
+        /*flex: 0 1 1200px;*/
+    }
+
+    .header-content {
+        width: 60%;
+        padding: 4.5em 0;
+    }
+
+    nav {
+        padding: 20px 40px;
+    }
+
+    .navigation-items {
+        justify-content: flex-end;
+        width: 100%;
+    }
+
+    .navigation-items a,
+    a:visited {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+
+    h1, h5 {
+        font-size: 2.4rem;
+        display: inline;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+/*Introduction*/
+    .introduction-text {
+        width: 60%;
+        padding-top: 10em;
+
+    }
+
+    .introduction-text::before {
+        font-size: 25rem;
+        top: 40%;
+    }
+
+/*Work*/
+    .rolling-stone {
+        flex-direction: row;
+        padding-top: 12em;
+
+    }
+
+    .variety {
+        flex-direction: row-reverse
+    }
+
+    .worth {
+        flex-direction: row;
+        padding-bottom: 8em;
+
+    }
+
+    .rolling-stone::before {
+        font-size: 25rem;
+        top: 30%;
+    }
+
+/*Services*/
+    .info-block {
+        padding: 2.5em;
+        flex: 0 0 314px;
+    }
+
+    .inner-services {
+        padding: 12em 3em 5em;
+    }
+
+    .image-wrapper {
+        margin: 2em;
+    }
+
+    .work-text-wrapper {
+        padding: 5em;
+    }
+
+    .inner-services::before {
+        font-size: 17rem;
+        top: 12%;
+    }
+
+/*Contact*/
+    .inner-contact {
+        flex-basis: 50vw;
+    }
+}
